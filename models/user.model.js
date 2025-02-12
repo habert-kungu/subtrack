@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import validator from "validator";
 
 const userSchema = new mongoose.Schema(
   {
@@ -17,8 +16,7 @@ const userSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
       trim: true,
-      match: [validator.isEmail, "Please fill a valid email address"],
-      //match:[/\S+@\S+\.\S+/,'Please fill a valid email address']
+      match: [/\S+@\S+\.\S+/, "Please fill a valid email address"],
     },
     password: {
       type: String,
