@@ -23,14 +23,13 @@ subscriptionRouter.delete("/:id", (req, res) =>
   res.send({ title: "DELETE subscription " }),
 );
 
-subscriptionRouter.post("/", authorize, createSubscription);
-
-subscriptionRouter.get("/user/:id", authorize, getUserSubscriptions);
-
 subscriptionRouter.put("/:id/cancel", (req, res) =>
   res.send({ title: " CANCEL subscriptions " }),
 );
 
+subscriptionRouter.post("/", authorize, createSubscription);
+
+subscriptionRouter.get("/user/:id", authorize, getUserSubscriptions);
 subscriptionRouter.get("/upcoming-renewals", (req, res) =>
   res.send({ title: "GET upcoming renewals subscription " }),
 );
