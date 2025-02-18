@@ -72,28 +72,83 @@ SERVER_URL="http://localhost:5500"
 # ENVIRONMENT
 NODE_ENV=development
 
-# DATABASE
+# DATABASE For Mongoose i set up the free tier
 DB_URI=
 
 # JWT AUTH
 JWT_SECRET=
 JWT_EXPIRES_IN="1d"
 
-# ARCJET
+# ARCJET 
 ARCJET_KEY=
 ARCJET_ENV="development"
 
-# UPSTASH
-QSTASH_URL=http://127.0.0.1:8080
+# UPSTASH tokens 
+QSTASH_URL=http://localhost:8080
 QSTASH_TOKEN=
 
-# NODEMAILER
+# NODEMAILER from gmail
 EMAIL_PASSWORD=
 ```
 ### Run the Project 
 ```bash
 npm run dev
 ```
+ill soon be be deploying it on a hosting platform 
+this are some of the test i used depending on day of writing this you can use postman or [Httpie](https://httpie.io/).
+
+### Sign Up 
+---
+#### url 
+```bash
+http://localhost:5500/api/v1/auth/sign-up
+```
+#### body 
+```bash
+{
+"name":" name",
+"email":"email",
+"password" : "123123"
+}
+```
+### Sign In
+---
+#### url 
+```bash
+http://localhost:5500/api/v1/auth/sign-in
+```
+#### body 
+```bash
+{
+"email":"email",
+"password" : "123123"
+}
+```
+
+### Subscriptions 
+---
+#### url 
+```bash
+http://localhost:5500/api/v1/subscriptions
+```
+#### body 
+```bash
+
+{
+"name":"youtube Premium  ",
+"price": 15.99,
+"currency": "USD",
+"frequency":"monthly",
+"category":"entertainment",
+"startDate":"2025-01-26T00:10:01.000Z",//please adjust the date 
+"paymentMethod":"Credit Card"
+}
+```
+Bearer token - add your own on sign up 
+### Email Output 
+
+![subtrack](https://github.com/user-attachments/assets/29dd0f7d-3e39-4a74-b5ec-eee157a4750e)
 
 
 
+![Screenshot from 2025-02-18 19-19-50](https://github.com/user-attachments/assets/e7896855-b30b-4c27-ae0b-ea16d37e35a6)
