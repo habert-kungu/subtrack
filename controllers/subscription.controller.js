@@ -1,6 +1,7 @@
-import Subscription from "../models/subscription.model.js";
 import { workflowClient } from "../config/upstash.js";
 import { SERVER_URL } from "../config/env.js";
+
+import Subscription from "../models/subscription.model.js";
 
 export const createSubscription = async (req, res, next) => {
   try {
@@ -17,7 +18,7 @@ export const createSubscription = async (req, res, next) => {
       headers: {
         "content-type": "application/json",
       },
-      retries: 0,
+      retries: 3,
     });
 
     res

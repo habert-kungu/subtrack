@@ -7,15 +7,24 @@ if (!DB_URI) {
   );
 }
 
-const connectToDatabase = async () => {
+const connectToDatabase = async (retries = 5, delay = 5000) => {
   try {
-    await mongoose.connect(DB_URI);
-
+    await mongoose.connect(DB_URI, {
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
+    });
     console.log(`Connected to database in ${NODE_ENV} mode`);
   } catch (error) {
     console.error("Error connecting to database: ", error);
 
-    process.exit(1);
+    if (retries > 0) {
+      console.log(`Retrying connection (${retries} retries left)...`);
+      await new Promise((resolve) => setTimeout(resolve, delay));
+      return connectToDatabase(retries - 1, delay);
+    } else {
+      console.error("Max retries reached. Exiting...");
+      process.exit(1);
+    }
   }
 };
 
