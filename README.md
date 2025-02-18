@@ -18,7 +18,7 @@ This repository contains the code for a **Subscription Management System API** b
 ---
 
 ## 🤖 Introduction
-Build a **production-ready Subscription Management System API** that handles real users, real money, and real business logic. This project covers:
+**production-ready Subscription Management System API** that handles real users, real money, and real business logic. This project covers:
 
 - **JWT Authentication**: Secure user authentication and authorization.
 - **Database Modeling**: Create models and relationships using MongoDB and Mongoose.
